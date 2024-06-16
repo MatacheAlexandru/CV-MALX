@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Layout</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./img/profil cv-depositphotos-bgremover.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- -------------------------------BODY------------------------------------- -->
+  <body>
+    <div class="container">
+      <!-- ---------------------------MENU---------------------------------------- -->
+      <div class="menu">
+        <img src="./img/profil cv-depositphotos-bgremover.png" alt="Logo" />
+        <div class="buttonsRubrics">
+          <button data-section="home">Home</button>
+          <button data-section="experience">Experience</button>
+          <button data-section="education">Education</button>
+          <button data-section="portfolio">Portfolio</button>
+          <button data-section="blog">Blog</button>
+          <button data-section="contact">Contacts</button>
+        </div>
+      </div>
+      <!-- -----------------------------CONTENT----------------------------------- -->
+      <div class="content">
+        <!-- ---------------------------Home-------------------------------------- -->
+        <div id="home" class="section active">
+          <div class="nameContainer">
+            <div class="video-background">
+              <video autoplay muted loop playsinline id="backgroundVideo">
+                <source
+                  src="./img/853870-hd_1920_1080_25fps.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="logo">
+              <p class="firstName">
+                ALEXANDRU<span class="animatedText">I am Developer</span>
+              </p>
+
+              <p class="lastName">
+                <span class="animatedText2">Front-End</span>MATACHE
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- -----------------------------Experience--------------------------------- -->
+        <div id="experience" class="section experience">
+          <div><h1>Experience</h1></div>
+          <div class="positionExperience">
+            <div class="line">
+              <svg class="icon-minus">
+                <use href="./svg/symbol-defs.svg#icon-minus"></use>
+              </svg>
+            </div>
+            <div class="experienceDetails">
+              <h3>IT technician at Next Com Solutions S.R.L.</h3>
+              <h5>
+                Consultancy, design, installation and configuration of wired
+                voice/data networks. Design, installation and configuration of
+                WLAN networks. Maintenance and technical support for networks /
+                IT infrastructures.
+              </h5>
+              <h5>
+                Review requirements, specifications documents to provide timely
+                and meaningful feedback. Estimate, prioritize, plan and
+                coordinate activities to meet client needs. Keep in touch with
+                all the teams working on the project to finish the projects in a
+                timely manner and without problems
+              </h5>
+            </div>
+          </div>
+        </div>
+        <div id="education" class="section">Education</div>
+        <div id="portfolio" class="section">Portfolio Content</div>
+        <div id="blog" class="section">Blog Content</div>
+        <div id="contact" class="section">Contact Content</div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
