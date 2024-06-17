@@ -3,14 +3,15 @@ body {
 }
 
 html {
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
   width: 100vw;
   display: flex;
-  height: 100vh;
-  overflow: hidden;
+  /* height: auto; */
+  /* overflow: hidden; */
 }
 
 .menu {
@@ -18,22 +19,22 @@ html {
   max-width: 18vw;
   background-color: white;
   padding: 2vw;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
   overflow-y: auto;
-  border-right: 0.3vw solid #2e9aff;
-  /* position: fixed; 
+
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1000;
-  background-color: transparent;  */
+  background-color: transparent;
 }
 
 .content {
   width: 100%;
-  height: 100vh;
+
   padding: 1.5rem;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* overflow-y: auto; */
 }
 
@@ -42,13 +43,13 @@ html {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  /* height: auto; */
   opacity: 0;
   transform: translateX(-100%);
   transition: all 1s ease;
 }
 
-.section1 {
+.home {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,10 +116,10 @@ html {
   justify-content: center;
   line-height: 1;
   text-decoration: none;
-  color: #0691fb;
+  color: #00aaff;
   font-size: 2vw;
   border-radius: 0px;
-  border: 0.25vw solid #0691fb;
+  border: 0.1vw solid #00aaff;
   transition: 0.3s;
   background-color: transparent;
 }
@@ -145,15 +146,6 @@ html {
   transform: translate(-50%, -50%);
   background-size: cover;
   opacity: 0.8;
-}
-
-.nameContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  left: 10%;
 }
 
 .firstName {
@@ -223,6 +215,10 @@ html {
   text-transform: none;
 }
 
+.logo {
+  padding-top: 20vw;
+}
+
 /* ----------------Experience---------------- */
 
 .experience {
@@ -230,65 +226,79 @@ html {
   flex-direction: column;
 
   padding-top: 10vh;
-  height: auto;
+
   align-items: center;
-  overflow: auto;
 }
 
-.line {
-  display: flex;
-  flex-direction: column;
-  width: 5vw;
-  height: auto;
-  padding-left: 2vw;
-}
-.experience div h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 5vw;
-  color: #2e9aff;
-}
-.detailsh5 {
-  font-family: "Playfair Display", serif;
-  font-size: 2vw;
-}
-
-.detailsh3 {
-  font-family: "Playfair Display", serif;
-  font-size: 4vw;
-}
-
-p {
+.timeline {
   position: relative;
-  right: 1vw;
-  font-family: "Playfair Display", serif;
+  width: auto;
+  margin: 0 auto;
+  padding: 0 3vw;
+}
+
+.timeline-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timeline-header h2 {
+  font-size: 6vw;
+  color: #333;
+  border-bottom: 0.1vw solid #00aaff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 2vw;
+  position: relative;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0.1vw; /* lățimea liniei */
+  background-color: #00aaff; /* culoarea liniei */
+  margin-left: 1vw;
+}
+
+.timeline-year {
+  /* flex: 0 0 80px; */
+  font-size: 2vw;
+  color: #00aaff;
+  position: relative;
+}
+
+.timeline-content {
+  background-color: #fff;
+  padding: 2vw;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  position: relative;
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 5vw;
+  color: #333;
+}
+
+.timeline-content .company {
+  font-size: 4vw;
+  color: #00aaff;
+  margin: 5px 0;
+}
+
+.text1 {
   font-size: 3vw;
 }
 
-.icon-minus {
-  transform: rotate(90deg) scaleX(60);
-  height: 100%;
-  width: 100%;
-  fill: #2e9aff;
-}
-
-/* .chevron-down {
-  position: relative;
-  top: 115px;
-  height: 2vw;
-  fill: #2e9aff;
-}
-
-.icon-chevron-up {
-  height: 2vw;
-  fill: #2e9aff;
-} */
-
-.positionExperience {
-  display: flex;
-  /* flex-direction: column; */
-}
-
-.experienceDetails {
-  padding-right: 10vw;
-  padding-left: 2vw;
+.timeline-item:last-child:before {
+  display: none;
 }
