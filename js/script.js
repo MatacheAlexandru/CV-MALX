@@ -3,30 +3,60 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu button");
   const sections = document.querySelectorAll(".section");
 
+  // Funcție pentru dezactivarea butonului secțiunii active
+  function disableButtonForActiveSection() {
+    sections.forEach((section) => {
+      if (section.classList.contains("active")) {
+        menuItems.forEach((btn) => {
+          if (btn.getAttribute("data-section") === section.id) {
+            btn.disabled = true;
+          } else {
+            btn.disabled = false;
+          }
+        });
+      }
+    });
+  }
+
+  // Dezactivează butonul secțiunii active la încărcarea paginii
+  disableButtonForActiveSection();
+
   menuItems.forEach((item) => {
     item.addEventListener("click", function () {
       const targetSectionId = this.getAttribute("data-section");
       const targetSection = document.getElementById(targetSectionId);
 
-      sections.forEach((section) => {
-        if (section.classList.contains("active")) {
-          section.classList.remove("active");
-          section.style.opacity = "0";
-          section.style.transform = "translateX(100%)";
-          setTimeout(() => {
-            section.style.display = "none";
-          }, 500); // Trebuie să fie același timp ca tranziția
-        }
-      });
+      // Verifică dacă secțiunea țintă este deja activă
+      if (targetSection.classList.contains("active")) {
+        return; // Ieșim din funcție dacă secțiunea este deja activă
+      }
 
-      setTimeout(() => {
-        targetSection.style.display = "block";
-        setTimeout(() => {
+      // Ascunde secțiunea activă curentă
+      const activeSection = document.querySelector(".section.active");
+      if (activeSection) {
+        activeSection.classList.remove("active");
+        activeSection.style.opacity = "0";
+        activeSection.style.transform = "translateX(100%)";
+        activeSection.addEventListener(
+          "transitionend",
+          function onTransitionEnd() {
+            activeSection.style.display = "none";
+            activeSection.removeEventListener("transitionend", onTransitionEnd);
+          }
+        );
+      }
+
+      // Afișează secțiunea țintă
+      targetSection.style.display = "block";
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
           targetSection.classList.add("active");
           targetSection.style.opacity = "1";
           targetSection.style.transform = "translateX(0)";
-        }, 10); // Întârziere mică pentru a permite stilurilor să se aplice
-      }, 500); // Întârziere pentru așteptarea închiderii secțiunii anterioare
+          // Dezactivează butonul curent
+          disableButtonForActiveSection();
+        });
+      });
     });
   });
 });
