@@ -2,10 +2,10 @@ body {
   /* background-color: rgb(191, 191, 191); */
 }
 
-/* html {
+html {
   width: 100%;
   height: 100%;
-} */
+}
 
 .container {
   width: 100vw;
@@ -41,6 +41,7 @@ body {
   transform: translateX(100%);
   transition: opacity 0.5s ease, transform 1.5s ease;
   display: none;
+  margin: 0 auto;
 }
 
 .home {
@@ -57,10 +58,26 @@ body {
   display: block; /* Afișează secțiunea activă */
 }
 
-.section.exiting {
+/* .section.exiting {
   opacity: 0;
   transform: translateX(100%);
+} */
+
+@media (min-width: 576px) {
 }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
 #experience {
   background-color: #ffffff;
 }
