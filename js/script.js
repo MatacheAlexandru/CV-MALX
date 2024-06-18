@@ -11,18 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
       sections.forEach((section) => {
         if (section.classList.contains("active")) {
           section.classList.remove("active");
+          section.style.opacity = "0";
+          section.style.transform = "translateX(100%)";
           setTimeout(() => {
-            section.style.opacity = "0";
-            section.style.transform = "translateX(100%)";
-          }, 500);
+            section.style.display = "none";
+          }, 500); // Trebuie să fie același timp ca tranziția
         }
       });
 
       setTimeout(() => {
-        targetSection.classList.add("active");
-        targetSection.style.opacity = "1";
-        targetSection.style.transform = "translateX(0)";
-      }, 500);
+        targetSection.style.display = "block";
+        setTimeout(() => {
+          targetSection.classList.add("active");
+          targetSection.style.opacity = "1";
+          targetSection.style.transform = "translateX(0)";
+        }, 10); // Întârziere mică pentru a permite stilurilor să se aplice
+      }, 500); // Întârziere pentru așteptarea închiderii secțiunii anterioare
     });
   });
 });
