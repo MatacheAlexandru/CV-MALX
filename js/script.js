@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const burgerMenu = document.getElementById("burger-menu");
   const menu = document.getElementById("menu");
 
-  // Initialize sections
   sections.forEach((section) => {
     if (!section.classList.contains("active")) {
       section.style.display = "none";
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //++ Aplica stilurile de animație pentru secțiunea home la încărcarea paginii
   const homeSection = document.getElementById("home");
   homeSection.style.display = "block";
   homeSection.style.transform = "scale(1) translate(0, 0)";
@@ -23,22 +21,18 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeSection = document.querySelector(".section.active");
       const targetSection = document.getElementById(this.dataset.section);
 
-      // Verifică dacă secțiunile active și țintă există
       if (activeSection && targetSection && activeSection !== targetSection) {
         menuItems.forEach((mi) => mi.classList.remove("active"));
         this.classList.add("active");
 
-        // Micșorează secțiunea activă în centrul ecranului
         activeSection.classList.remove("active");
         activeSection.style.transform = "scale(0.5) translate(-50%, -50%)";
         activeSection.style.transition = "transform 0.5s ease-in-out";
 
-        // După ce secțiunea activă s-a micșorat și s-a deplasat, mut-o complet la stânga
         setTimeout(() => {
           activeSection.style.transform = "scale(0.5) translate(-200%, -50%)";
           activeSection.style.transition = "transform 0.5s ease-in-out";
 
-          // După ce secțiunea activă a dispărut, afișează secțiunea țintă
           setTimeout(() => {
             activeSection.style.display = "none";
             targetSection.style.display = "block";
@@ -49,14 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
               targetSection.style.transform =
                 "scale(0.5) translate(-50%, -50%)";
 
-              // Așteaptă până secțiunea țintă ajunge în centrul ecranului, apoi mărește la dimensiunea inițială
               setTimeout(() => {
                 targetSection.style.transform = "scale(1) translate(0, 0)";
                 targetSection.classList.add("active");
-              }, 750); // întârziere pentru mărire
-            }, 1); // fără întârziere pentru deplasare
-          }, 750); // întârziere pentru așteptarea tranziției de deplasare
-        }, 750); // întârziere pentru așteptarea tranziției de micșorare
+              }, 750);
+            }, 1);
+          }, 750);
+        }, 750);
       }
 
       if (window.innerWidth < 768) {
@@ -121,15 +114,15 @@ document.addEventListener("DOMContentLoaded", function () {
                         setTimeout(startAnimations, 100);
                       }
                     );
-                  }, 1000); // Păstrează textul 2 vizibil timp de 3 secunde
+                  }, 1000);
                 }
               );
             }
           );
-        }, 1000); // Păstrează textul 1 vizibil timp de 3 secunde
+        }, 1000);
       }
     );
   }
 
-  startAnimations(); // Pornește animațiile
+  startAnimations();
 });
