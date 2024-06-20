@@ -8,9 +8,15 @@ document.addEventListener("DOMContentLoaded", function () {
   sections.forEach((section) => {
     if (!section.classList.contains("active")) {
       section.style.display = "none";
-      section.style.transform = "scale(0.5) translate(150%, -50%)";
+      section.style.transform = "scale(0.5) translate(-150%, -50%)";
     }
   });
+
+  //++ Aplica stilurile de animație pentru secțiunea home la încărcarea paginii
+  const homeSection = document.getElementById("home");
+  homeSection.style.display = "block";
+  homeSection.style.transform = "scale(1) translate(0, 0)";
+  homeSection.style.transition = "transform 0.5s ease-in-out";
 
   menuItems.forEach((item) => {
     item.addEventListener("click", function () {

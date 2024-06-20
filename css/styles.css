@@ -85,8 +85,7 @@ main {
   background-color: rgb(255, 140, 0);
 }
 
-/* ----------------home-------------- */
-
+/* ----------------home--------------*/
 .video-background {
   position: fixed;
   top: 0;
@@ -149,7 +148,6 @@ main {
 .animatedText::after {
   content: "";
   position: absolute;
-
   bottom: -0.5vw; /* Poziționează subliniarea sub text */
   height: 0.1vw; /* Grosimea sublinierii */
   left: -40%; /* Aliniază la stânga */
@@ -342,9 +340,10 @@ li {
   font-size: 3vw;
 }
 
-.timeline-item:last-child:before {
+.timeline-item:last-child {
   display: none;
 }
+
 @media (max-width: 768px) {
   nav {
     padding-left: 3vw;
@@ -358,21 +357,17 @@ li {
     left: 0;
     width: 40%;
   }
-
   ul#menu .menu-item {
     padding: 15px;
     border-bottom: 1px solid white;
     font-size: 3vw;
   }
-
   ul#menu.active {
     display: flex;
   }
-
   .burger-menu {
     display: block;
   }
-
   .imgprofile {
     position: relative;
   }
