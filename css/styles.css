@@ -75,9 +75,6 @@ main {
   transform: scale(1);
 }
 
-#education {
-  background-color: rgb(0, 8, 255);
-}
 #portfolio {
   background-color: rgb(255, 0, 225);
 }
@@ -224,6 +221,7 @@ main {
 
 .skills {
   display: flex;
+  flex-direction: column-reverse;
 }
 
 li {
@@ -234,7 +232,8 @@ li {
 .skills-high1 li,
 .skills-high2 li {
   font-family: "Roboto Slab", serif;
-  font-size: 1.2vw;
+  font-size: 2.1vw;
+  padding: 1vw;
 }
 
 .skills-high1 li i,
@@ -277,13 +276,13 @@ li {
 .highlight {
   color: #263cc9;
   font-family: "Roboto Slab", serif;
-  font-size: 2vw;
+  font-size: 2.9vw;
   margin-left: 2vw;
 }
 
 .indented {
   font-family: "Roboto Slab", serif;
-  font-size: 1.2vw;
+  font-size: 2.1vw;
   display: block;
   margin-left: 2.7vw;
 }
@@ -387,6 +386,28 @@ li {
 
 .timeline-item:last-child {
   display: none;
+}
+
+/* -------------------------education---------------------- */
+
+#education {
+  margin-top: 10vh;
+}
+
+.content-education {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-education h2 {
+  font-family: "Roboto Slab", serif;
+  font-size: 5vw;
+  color: white;
+  background-color: #263cc9;
+  border-radius: 0 80% 0 50%;
+  margin: 0;
+  padding: 3vw 4vw;
 }
 
 @media (max-width: 768px) {
