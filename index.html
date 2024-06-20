@@ -3,101 +3,167 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Layout</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Single Page Website</title>
     <link
-      rel="icon"
-      type="image/x-icon"
-      href="./img/profil cv-depositphotos-bgremover.png"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <!-- -------------------------------BODY------------------------------------- -->
   <body>
-    <div class="container">
-      <!-- ---------------------------MENU---------------------------------------- -->
-      <div class="menu">
-        <img src="./img/profil cv-depositphotos-bgremover.png" alt="Logo" />
-        <div class="buttonsRubrics">
-          <button data-section="home">Home</button>
-          <button data-section="about">About me</button>
-          <button data-section="experience">Experience</button>
-          <button data-section="education">Education</button>
-          <button data-section="portfolio">Portfolio</button>
-          <button data-section="contact">Contacts</button>
-        </div>
-      </div>
-      <!-- -----------------------------CONTENT----------------------------------- -->
-      <div class="content">
-        <!-- ---------------------------Home-------------------------------------- -->
-        <div id="home" class="section active home">
-          <div class="nameContainer">
-            <div class="video-background">
-              <video autoplay muted loop playsinline id="backgroundVideo">
-                <source
-                  src="./img/853870-hd_1920_1080_25fps.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-              <div class="logo">
-                <p class="firstName">
-                  ALEXANDRU<span class="animatedText">I am Developer</span>
-                </p>
+    <header>
+      <nav>
+        <ul id="menu">
+          <img
+            class="imgprofile"
+            src="./img/profil cv-depositphotos-bgremover.png"
+            alt="Profile Picture"
+          />
+          <li class="menu-item active" data-section="home">Home</li>
+          <li class="menu-item" data-section="about">About me</li>
+          <li class="menu-item" data-section="experience">Experience</li>
+          <li class="menu-item" data-section="education">Education</li>
+          <li class="menu-item" data-section="portfolio">Portfolio</li>
+          <li class="menu-item" data-section="contact">Contact</li>
+        </ul>
+        <div class="burger-menu" id="burger-menu">☰</div>
+      </nav>
+    </header>
 
-                <p class="lastName">
-                  <span class="animatedText2">Front-End</span>MATACHE
-                </p>
-              </div>
+    <main>
+      <section id="home" class="section active">
+        <div class="nameContainer">
+          <div class="video-background">
+            <video autoplay muted loop playsinline id="backgroundVideo">
+              <source
+                src="./img/853870-hd_1920_1080_25fps.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <div class="logo">
+              <p class="firstName">
+                ALEXANDRU<span class="animatedText">I am Developer</span>
+              </p>
+
+              <p class="lastName">
+                <span class="animatedText2">Front-End</span>MATACHE
+              </p>
             </div>
           </div>
         </div>
-
-        <!-- -----------------------------About me--------------------------------- -->
-
-        <div id="about" class="section about">About me</div>
-
-        <!-- -----------------------------Experience--------------------------------- -->
-        <div id="experience" class="section experience">
-          <div class="timeline">
-            <div class="timeline-header">
-              <h2>EXPERIENCE</h2>
-            </div>
-            <div class="timeline-year">2013</div>
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <h3>IT technician</h3>
-                <p class="company">At Next Com Solutions S.R.L.</p>
-                <p class="text1">
-                  Consultancy, design, installation and configuration of wired
-                  voice/data networks. Design, installation and configuration of
-                  WLAN networks. Maintenance and technical support for networks
-                  / IT infrastructures.
-                </p>
-                <p class="text1">
-                  Review requirements, specifications documents to provide
-                  timely and meaningful feedback. Estimate, prioritize, plan and
-                  coordinate activities to meet client needs. Keep in touch with
-                  all the teams working on the project to finish the projects in
-                  a timely manner and without problems
-                </p>
+      </section>
+      <section id="about" class="section">
+        <h2 class="title-about">ABOUT ME</h2>
+        <div class="about-container">
+          <div class="profile-pic">
+            <h3>Skill Highlights</h3>
+            <div class="skills">
+              <div class="skills-high1">
+                <ul>
+                  <li>
+                    <i class="fas fa-tasks"></i>Good organizational skills –
+                    experienced
+                  </li>
+                  <li>
+                    <i class="fas fa-comments"></i>Communication – experienced
+                  </li>
+                  <li>
+                    <i class="fas fa-brain"></i>Complex problem solving – expert
+                  </li>
+                  <li><i class="fab fa-java"></i>Java – beginner</li>
+                  <li><i class="fas fa-vial"></i>Manual testing – beginner</li>
+                  <li><i class="fas fa-code"></i>IntelliJ IDEA – beginner</li>
+                  <li>
+                    <i class="fas fa-code"></i>Visual Studio Code – beginner
+                  </li>
+                  <li>
+                    <i class="fas fa-thermometer-half"></i>Ability to work under
+                    pressure – experienced
+                  </li>
+                </ul>
+              </div>
+              <div class="skills-high2">
+                <ul>
+                  <li>
+                    <i class="fas fa-eye"></i>Attention to detail – experienced
+                  </li>
+                  <li>
+                    <i class="fas fa-vials"></i>Functional testing – beginner
+                  </li>
+                  <li>
+                    <i class="fas fa-robot"></i>Automation testing – beginner
+                  </li>
+                  <li><i class="fas fa-project-diagram"></i>Jira – beginner</li>
+                  <li>
+                    <i class="fas fa-user-check"></i>Service focused – expert
+                  </li>
+                  <li><i class="fas fa-lightbulb"></i>Innovative – expert</li>
+                  <li>
+                    <i class="fas fa-bolt"></i>General quick learning skills –
+                    expert
+                  </li>
+                </ul>
               </div>
             </div>
-
-            <div class="timeline-year1">PRESENT</div>
+          </div>
+          <div class="about-content">
+            <div class="summary">
+              <h3>Summary</h3>
+              <p>
+                Software Tester – QA Field Engineer at Operative. Finalized a
+                class in automation and manual testing at Azimut Vision School.
+                Well-versed in numerous programming languages including HTML5,
+                JavaScript, CSS, Jira, IntelliJ IDEA, Visual Studio Code.
+              </p>
+              <p>
+                10-year experience in managing, supporting and solving clients'
+                problems.
+              </p>
+            </div>
           </div>
         </div>
-        <div id="education" class="section">Education</div>
-        <div id="portfolio" class="section">Portfolio Content</div>
-        <div id="about" class="section">About me</div>
-        <div id="contact" class="section">Contact Content</div>
-      </div>
-    </div>
+      </section>
+      <section id="experience" class="section">
+        <div class="timeline">
+          <div class="timeline-header">
+            <h2>EXPERIENCE</h2>
+          </div>
+          <div class="timeline-year">2013</div>
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h3>IT technician</h3>
+              <p class="company">At Next Com Solutions S.R.L.</p>
+              <p class="text1">
+                Consultancy, design, installation and configuration of wired
+                voice/data networks. Design, installation and configuration of
+                WLAN networks. Maintenance and technical support for networks /
+                IT infrastructures.
+              </p>
+              <p class="text1">
+                Review requirements, specifications documents to provide timely
+                and meaningful feedback. Estimate, prioritize, plan and
+                coordinate activities to meet client needs. Keep in touch with
+                all the teams working on the project to finish the projects in a
+                timely manner and without problems
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-year1">PRESENT</div>
+        </div>
+      </section>
+      <section id="education" class="section">Education Content</section>
+      <section id="portfolio" class="section">Portfolio Content</section>
+      <section id="contact" class="section">Contact Content</section>
+    </main>
+
     <script src="./js/script.js"></script>
   </body>
 </html>

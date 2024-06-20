@@ -1,67 +1,71 @@
-// --------------------Swich the Window--------------------
 document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.querySelectorAll(".menu button");
+  const menuItems = document.querySelectorAll(".menu-item");
   const sections = document.querySelectorAll(".section");
+  const burgerMenu = document.getElementById("burger-menu");
+  const menu = document.getElementById("menu");
 
-  // Funcție pentru dezactivarea butonului secțiunii active
-  function disableButtonForActiveSection() {
-    sections.forEach((section) => {
-      if (section.classList.contains("active")) {
-        menuItems.forEach((btn) => {
-          if (btn.getAttribute("data-section") === section.id) {
-            btn.disabled = true;
-          } else {
-            btn.disabled = false;
-          }
-        });
-      }
-    });
-  }
-
-  // Dezactivează butonul secțiunii active la încărcarea paginii
-  disableButtonForActiveSection();
+  // Initialize sections
+  sections.forEach((section) => {
+    if (!section.classList.contains("active")) {
+      section.style.display = "none";
+      section.style.transform = "scale(0.5) translate(150%, -50%)";
+    }
+  });
 
   menuItems.forEach((item) => {
     item.addEventListener("click", function () {
-      const targetSectionId = this.getAttribute("data-section");
-      const targetSection = document.getElementById(targetSectionId);
-
-      // Verifică dacă secțiunea țintă este deja activă
-      if (targetSection.classList.contains("active")) {
-        return; // Ieșim din funcție dacă secțiunea este deja activă
-      }
-
-      // Ascunde secțiunea activă curentă
       const activeSection = document.querySelector(".section.active");
-      if (activeSection) {
+      const targetSection = document.getElementById(this.dataset.section);
+
+      // Verifică dacă secțiunile active și țintă există
+      if (activeSection && targetSection && activeSection !== targetSection) {
+        menuItems.forEach((mi) => mi.classList.remove("active"));
+        this.classList.add("active");
+
+        // Micșorează secțiunea activă în centrul ecranului
         activeSection.classList.remove("active");
-        activeSection.style.opacity = "0";
-        activeSection.style.transform = "translateX(100%)";
-        activeSection.addEventListener(
-          "transitionend",
-          function onTransitionEnd() {
+        activeSection.style.transform = "scale(0.5) translate(-50%, -50%)";
+        activeSection.style.transition = "transform 0.5s ease-in-out";
+
+        // După ce secțiunea activă s-a micșorat și s-a deplasat, mut-o complet la stânga
+        setTimeout(() => {
+          activeSection.style.transform = "scale(0.5) translate(-200%, -50%)";
+          activeSection.style.transition = "transform 0.5s ease-in-out";
+
+          // După ce secțiunea activă a dispărut, afișează secțiunea țintă
+          setTimeout(() => {
             activeSection.style.display = "none";
-            activeSection.removeEventListener("transitionend", onTransitionEnd);
-          }
-        );
+            targetSection.style.display = "block";
+            targetSection.style.transform = "scale(0.5) translate(150%, -50%)";
+            targetSection.style.transition = "transform 0.75s ease-in-out";
+
+            setTimeout(() => {
+              targetSection.style.transform =
+                "scale(0.5) translate(-50%, -50%)";
+
+              // Așteaptă până secțiunea țintă ajunge în centrul ecranului, apoi mărește la dimensiunea inițială
+              setTimeout(() => {
+                targetSection.style.transform = "scale(1) translate(0, 0)";
+                targetSection.classList.add("active");
+              }, 750); // întârziere pentru mărire
+            }, 1); // fără întârziere pentru deplasare
+          }, 750); // întârziere pentru așteptarea tranziției de deplasare
+        }, 750); // întârziere pentru așteptarea tranziției de micșorare
       }
 
-      // Afișează secțiunea țintă
-      targetSection.style.display = "block";
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          targetSection.classList.add("active");
-          targetSection.style.opacity = "1";
-          targetSection.style.transform = "translateX(0)";
-          // Dezactivează butonul curent
-          disableButtonForActiveSection();
-        });
-      });
+      if (window.innerWidth < 768) {
+        menu.classList.remove("active");
+      }
     });
+  });
+
+  burgerMenu.addEventListener("click", function () {
+    menu.classList.toggle("active");
   });
 });
 
-// -----------------------Animation Text homepage-----------------------
+//-----------------------------------------
+
 document.addEventListener("DOMContentLoaded", function () {
   const animatedText1 = document.querySelector(".animatedText");
   const animatedText2 = document.querySelector(".animatedText2");
@@ -122,48 +126,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   startAnimations(); // Pornește animațiile
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const menuItems = document.querySelectorAll(".menu button");
-  const sections = document.querySelectorAll(".section");
-
-  menuItems.forEach((item) => {
-    item.addEventListener("click", function () {
-      const targetSectionId = this.getAttribute("data-section");
-      const targetSection = document.getElementById(targetSectionId);
-
-      sections.forEach((section) => {
-        if (section.classList.contains("active")) {
-          section.classList.remove("active");
-          setTimeout(() => {
-            section.style.opacity = "0";
-            section.style.transform = "translateX(100%)";
-          }, 500);
-        }
-      });
-
-      setTimeout(() => {
-        targetSection.classList.add("active");
-        targetSection.style.opacity = "1";
-        targetSection.style.transform = "translateX(0)";
-      }, 500);
-
-      menuItems.forEach((button) => {
-        button.classList.remove("active");
-      });
-      this.classList.add("active");
-    });
-  });
-
-  // Set the initial active button based on the initial active section
-  const initialActiveSection = document.querySelector(".section.active");
-  if (initialActiveSection) {
-    const initialButton = document.querySelector(
-      `.menu button[data-section="${initialActiveSection.id}"]`
-    );
-    if (initialButton) {
-      initialButton.classList.add("active");
-    }
-  }
 });

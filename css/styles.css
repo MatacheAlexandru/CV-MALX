@@ -1,132 +1,91 @@
 body {
-  /* background-color: rgb(191, 191, 191); */
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-html {
+header {
+  background: #2e9aff;
+  color: #fff;
+  padding: 10px 0 10px 0;
+  position: fixed;
   width: 100%;
-  height: 100%;
-}
-
-.container {
-  width: 100vw;
-  display: flex;
-  height: 100%;
-  /* overflow: hidden; */
-}
-
-.menu {
-  height: auto;
-  max-width: 18vw;
-  background-color: white;
-  padding: 2vw;
-
-  overflow-y: auto;
-
+  top: 0;
   z-index: 1000;
-  background-color: transparent;
+  border-bottom: 0.2vw solid #fff;
 }
 
-.content {
-  width: 100vw;
-  height: auto;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 0 0 25vw;
 }
 
-.section {
+.imgprofile {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: opacity 0.5s ease, transform 1.5s ease;
-  display: none;
-  margin: 0 auto;
+  max-width: 20vw;
+  background: #2e9aff;
+  border-right: 0.2vw solid #fff;
+  border-bottom: 0.2vw solid #fff;
 }
 
-.home {
-  height: auto;
+ul#menu {
+  list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+ul#menu .menu-item {
+  cursor: pointer;
+  padding: 10px;
+  transition: background 0.3s;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5vw;
+}
+
+ul#menu .menu-item.active {
+  background: #263cc9;
+}
+
+.burger-menu {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+main {
+  perspective: 1000px;
+}
+
+.section {
+  display: none;
+  padding: 0;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center right;
 }
 
 .section.active {
-  position: relative;
-  opacity: 1;
-  transform: translateX(0);
-  display: block; /* Afișează secțiunea activă */
+  display: block;
+  transform: scale(1);
 }
 
-/* .section.exiting {
-  opacity: 0;
-  transform: translateX(100%);
-} */
-
-#experience {
-  background-color: #ffffff;
+#education {
+  background-color: rgb(0, 8, 255);
 }
 #portfolio {
-  background-color: #fdffb6;
+  background-color: rgb(255, 0, 225);
 }
 #contact {
-  background-color: #caffbf;
-}
-#about {
-  background-color: #19d80f;
-}
-#education {
-  background-color: #e22f2f;
+  background-color: rgb(255, 140, 0);
 }
 
-/* --------------------Menu----------------- */
-
-.menu img {
-  width: 100vw;
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 2vw;
-}
-.buttonsRubrics {
-  display: flex;
-  flex-direction: column;
-}
-
-/* .menu div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-
-.menu button:hover,
-.menu button.active {
-  border-left-width: 4px;
-  border-left: 2vw solid #0691fb;
-}
-
-.menu button {
-  width: 18vw;
-  height: 5vh;
-  /* padding: 1.5vw; */
-  cursor: pointer;
-  margin-bottom: 2vw;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  text-decoration: none;
-  color: #00aaff;
-  font-size: 2vw;
-  border-radius: 0px;
-  border: 0.1vw solid #00aaff;
-  transition: 0.3s;
-  background-color: transparent;
-}
-
-/* -------------------Home page----------------- */
+/* ----------------home-------------- */
 
 .video-background {
   position: fixed;
@@ -155,7 +114,7 @@ html {
 }
 
 .firstName {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 5vw;
   letter-spacing: 0.5vw;
   word-spacing: 0.5vw;
@@ -173,8 +132,8 @@ html {
   font-size: 3vw;
   position: relative;
   opacity: 0;
-  font-family: "Playfair Display", serif;
-  font-weight: 300;
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
 }
 
 .animatedText {
@@ -209,7 +168,7 @@ html {
 }
 
 .lastName {
-  font-family: "Playfair Display", serif;
+  font-family: "Roboto Slab", serif;
   font-size: 5vw;
   letter-spacing: 0.5vw;
   word-spacing: 0.5vw;
@@ -221,20 +180,83 @@ html {
   text-transform: none;
 }
 
-.nameContainer {
-}
-
 .logo {
-  padding-bottom: 20vw;
+  padding-top: 8vw;
+  padding-left: 6vw;
   z-index: 2;
 }
 
-/* -------------------About me----------------- */
+/* ---------------about me------------- */
 
-.about {
+#about {
+  margin-top: 5vh;
+  display: flex;
+  overflow: auto;
 }
 
-/* ----------------Experience---------------- */
+.title-about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  font-size: 5vw;
+  color: white;
+  background-color: #263cc9;
+  border-radius: 0 90% 0 50%;
+  margin: 2.5vw 15vw 0 22vw;
+  padding: 3vw 0;
+}
+
+.profile-pic {
+  margin: 0 auto;
+  padding: 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-pic h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 4vw;
+  color: #2e9aff;
+  text-decoration: underline;
+  text-decoration-color: #263cc9;
+}
+
+.skills {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  padding: 2vw 0;
+}
+
+.skills-high1 li,
+.skills-high2 li {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5vw;
+}
+
+.skills-high1 li i,
+.skills-high2 li i {
+  margin: 1vw;
+  font-size: 4vw;
+  color: #2e9aff;
+}
+
+@media (max-width: 768px) {
+  .profile-pic img {
+    width: 150px;
+  }
+}
+
+/* -------------------experience------------------- */
+
+#experience {
+  margin-top: 10vh;
+}
 
 .experience {
   display: flex;
@@ -246,7 +268,7 @@ html {
 .timeline {
   width: auto;
   margin: 0 auto;
-  padding: 0 3vw;
+  padding: 6vh 3vw;
 }
 
 .timeline-header {
@@ -307,7 +329,7 @@ html {
 .timeline-content h3 {
   margin: 0;
   font-size: 5vw;
-  color: #333;
+  color: white;
 }
 
 .timeline-content .company {
@@ -322,4 +344,36 @@ html {
 
 .timeline-item:last-child:before {
   display: none;
+}
+@media (max-width: 768px) {
+  nav {
+    padding-left: 3vw;
+  }
+  ul#menu {
+    display: none;
+    flex-direction: column;
+    background: #2e9aff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 40%;
+  }
+
+  ul#menu .menu-item {
+    padding: 15px;
+    border-bottom: 1px solid white;
+    font-size: 3vw;
+  }
+
+  ul#menu.active {
+    display: flex;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .imgprofile {
+    position: relative;
+  }
 }
