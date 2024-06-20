@@ -207,7 +207,7 @@ main {
 
 .profile-pic {
   margin: 0 auto;
-  padding: 4vw;
+  padding: 3vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -216,7 +216,7 @@ main {
 
 .profile-pic h3 {
   font-family: "Roboto Slab", serif;
-  font-size: 4vw;
+  font-size: 3vw;
   color: #2e9aff;
   text-decoration: underline;
   text-decoration-color: #263cc9;
@@ -234,16 +234,59 @@ li {
 .skills-high1 li,
 .skills-high2 li {
   font-family: "Roboto Slab", serif;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 }
 
 .skills-high1 li i,
 .skills-high2 li i {
   margin: 1vw;
-  font-size: 4vw;
+  font-size: 3vw;
   color: #2e9aff;
 }
 
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary {
+  margin: 0 auto;
+  padding: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: auto;
+  margin: 0 auto;
+  padding: 0vh 20vw;
+}
+
+.about-content h3 {
+  font-family: "Roboto Slab", serif;
+  font-size: 3vw;
+  color: #2e9aff;
+  text-decoration: underline;
+  text-decoration-color: #263cc9;
+}
+
+.summary p {
+}
+
+.highlight {
+  color: #263cc9;
+  font-family: "Roboto Slab", serif;
+  font-size: 2vw;
+  margin-left: 2vw;
+}
+
+.indented {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.2vw;
+  display: block;
+  margin-left: 2.7vw;
+}
 @media (max-width: 768px) {
   .profile-pic img {
     width: 150px;
@@ -266,7 +309,7 @@ li {
 .timeline {
   width: auto;
   margin: 0 auto;
-  padding: 6vh 3vw;
+  padding: 0vh 20vw;
 }
 
 .timeline-header {
@@ -275,11 +318,13 @@ li {
 }
 
 .timeline-header h2 {
-  font-size: 6vw;
-  color: #333;
-  border-bottom: 0.1vw solid #00aaff;
-  display: inline-block;
-  padding-bottom: 5px;
+  font-family: "Roboto Slab", serif;
+  font-size: 5vw;
+  color: white;
+  background-color: #263cc9;
+  border-radius: 0 80% 0 50%;
+  margin: 0;
+  padding: 3vw 4vw;
 }
 
 .timeline-item {
@@ -329,9 +374,11 @@ li {
 }
 
 .timeline-content .company {
+  font-family: "Roboto Slab", serif;
   font-size: 4vw;
-  color: #00aaff;
-  margin: 5px 0;
+  color: #2e9aff;
+  text-decoration: underline;
+  text-decoration-color: #263cc9;
 }
 
 .text1 {
