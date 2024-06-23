@@ -1,3 +1,5 @@
+// ------------------------transition sections---------------------
+
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const sections = document.querySelectorAll(".section");
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-//-----------------------------------------
+//-----------------------------------------title animation------------------------------
 
 document.addEventListener("DOMContentLoaded", function () {
   const animatedText1 = document.querySelector(".animatedText");
