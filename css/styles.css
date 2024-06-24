@@ -34,8 +34,8 @@ nav {
   left: 0;
   width: 18vw;
   background: #b3b3b3;
-  border-right: 0.2vw solid #fff;
-  border-bottom: 0.2vw solid #fff;
+  border-right: 0.3vw solid #fff;
+  border-bottom: 0.3vw solid #fff;
 }
 
 ul#menu {
@@ -110,9 +110,6 @@ main {
   }
 }
 
-#portfolio {
-  background-color: rgb(255, 0, 225);
-}
 #contact {
   background-color: rgb(255, 140, 0);
 }
@@ -240,6 +237,11 @@ main {
   background-color: #263cc9;
   border-radius: 0 90% 0 50%;
   padding: 3vw 21vw;
+
+  @media (min-width: 1601px) {
+    font-size: 61px;
+    padding: 49px 336px;
+  }
 }
 
 .profile-pic {
@@ -249,6 +251,10 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  padding: 2vw;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .profile-pic h3 {
@@ -284,10 +290,16 @@ li {
 }
 
 .about-content {
+  margin: 3vw 21vw;
+  /* padding: 3vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
+  padding: 2vw;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .summary {
@@ -298,8 +310,6 @@ li {
   justify-content: center;
   /* align-items: center; */
   width: auto;
-  margin: 0 auto;
-  padding: 0vh 20vw;
 }
 
 .about-content h3 {
@@ -325,6 +335,7 @@ li {
   font-size: 1.1vw;
   display: block;
   margin-left: 2.7vw;
+  margin-bottom: 2vw;
 }
 @media (max-width: 768px) {
   .profile-pic img {
@@ -335,7 +346,7 @@ li {
 /* -------------------experience------------------- */
 
 #experience {
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 .experience {
@@ -351,6 +362,16 @@ li {
   padding: 0vh 21vw;
 }
 
+.timeline-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0vh 21vw;
+  @media (min-width: 1601px) {
+    padding: 0 336px;
+  }
+}
+
 .timeline-header h2 {
   display: flex;
   justify-content: center;
@@ -361,6 +382,10 @@ li {
   background-color: #263cc9;
   border-radius: 0 90% 0 50%;
   padding: 3vw 21vw;
+  @media (min-width: 1601px) {
+    font-size: 61px;
+    padding: 49px 336px;
+  }
 }
 
 .timeline-item {
@@ -448,6 +473,10 @@ li {
   background-color: #263cc9;
   border-radius: 0 90% 0 50%;
   padding: 3vw 21vw;
+  @media (min-width: 1601px) {
+    font-size: 61px;
+    padding: 49px 336px;
+  }
 }
 
 .subtitle-education {
@@ -506,4 +535,32 @@ li {
   font-family: "Roboto Slab", serif;
   font-size: 2.1vw;
   padding: 1vw 4vw;
+}
+
+/* -------------------------POTFOLIO---------------------- */
+
+#portfolio {
+  margin-top: 10vh;
+}
+
+.content-portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-portfolio h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Slab", serif;
+  font-size: 3vw;
+  color: white;
+  background-color: #263cc9;
+  border-radius: 0 90% 0 50%;
+  padding: 3vw 21vw;
+  @media (min-width: 1601px) {
+    font-size: 61px;
+    padding: 49px 336px;
+  }
 }
