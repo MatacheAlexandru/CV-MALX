@@ -56,6 +56,7 @@ ul#menu .menu-item {
   transition: background 0.3s;
   font-family: "Roboto Slab", serif;
   font-size: 1.8vw;
+  font-weight: bold;
   padding: 1vw;
 }
 
@@ -63,10 +64,10 @@ ul#menu .menu-item.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.789);
   color: #000000;
-  border-radius: 10% 75% 10% 75%;
-
+  border-radius: 20% 75% 20% 75%;
+  font-weight: bold;
   padding: 0 3vw;
 }
 
@@ -270,9 +271,10 @@ main {
 .profile-pic h3 {
   font-family: "Roboto Slab", serif;
   font-size: 2vw;
+  font-weight: bold;
   color: #002b54;
   text-decoration: underline;
-  text-decoration-color: #263cc9;
+  text-decoration-color: #002b54;
 }
 
 .skills {
@@ -289,6 +291,8 @@ li {
   font-family: "Roboto Slab", serif;
   font-size: 1.1vw;
   padding: 1vw;
+  font-weight: bold;
+  color: rgba(8, 0, 0, 0.625);
 }
 
 .skills-high1 li i,
@@ -326,10 +330,12 @@ li {
   font-size: 2vw;
   color: #002b54;
   text-decoration: underline;
-  text-decoration-color: #263cc9;
+  text-decoration-color: #002b54;
+  font-weight: bold;
 }
 
 .highlight {
+  font-weight: bold;
   color: #263cc9;
   font-family: "Roboto Slab", serif;
   font-size: 1.5vw;
@@ -342,6 +348,8 @@ li {
   display: block;
   margin-left: 2.7vw;
   margin-bottom: 2vw;
+  font-weight: bold;
+  color: rgba(8, 0, 0, 0.625);
 }
 @media (max-width: 768px) {
   .profile-pic img {
