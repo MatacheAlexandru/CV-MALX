@@ -12,6 +12,62 @@ li {
   padding: 0;
 }
 
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+  transform-origin: center;
+}
+
+/* Animații personalizate dacă este necesar */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5) translateX(100%);
+    opacity: 0;
+    filter: blur(10px);
+    transform-origin: center;
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transform-origin: center;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transform-origin: center;
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    transform: scale(0.5) translateX(-100%);
+    opacity: 0;
+    filter: blur(10px);
+    transform-origin: center;
+  }
+}
+
+.animate__zoomIn {
+  animation: zoomIn 1s forwards;
+  transform-origin: center;
+}
+
+.animate__zoomOut {
+  animation: zoomOut 1s forwards;
+  transform-origin: center;
+}
+
 header {
   color: #fdfdfd;
   padding: 0.2vw 0 0.2vw 0;
@@ -69,6 +125,20 @@ ul#menu .menu-item.active {
   border-radius: 20% 75% 20% 75%;
   font-weight: bold;
   padding: 0 3vw;
+  animation: rotateIn 0.3s forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    transform: rotate(0deg);
+    background-color: transparent;
+    color: inherit;
+  }
+  to {
+    transform: rotate(360deg);
+    background-color: rgba(0, 89, 255, 0.5);
+    color: white;
+  }
 }
 
 .burger-menu {

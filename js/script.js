@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const burgerMenu = document.getElementById("burger-menu");
   const menu = document.getElementById("menu");
 
+  // Inițial, ascundem toate secțiunile în afară de cea activă
   sections.forEach((section) => {
     if (!section.classList.contains("active")) {
+      section.classList.add("animate__animated", "animate__zoomOut");
       section.style.display = "none";
-      section.style.transform = "scale(0.5) translate(-150%, -50%)";
     }
   });
 
   const homeSection = document.getElementById("home");
   homeSection.style.display = "block";
-  homeSection.style.transform = "scale(1) translate(0, 0)";
-  homeSection.style.transition = "transform 0.5s ease-in-out";
+  homeSection.classList.add("animate__animated", "animate__zoomIn");
 
   menuItems.forEach((item) => {
     item.addEventListener("click", function () {
@@ -28,30 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add("active");
 
         activeSection.classList.remove("active");
-        activeSection.style.transform = "scale(0.5) translate(-50%, -50%)";
-        activeSection.style.transition = "transform 0.5s ease-in-out";
+        activeSection.classList.remove("animate__zoomIn");
+        activeSection.classList.add("animate__zoomOut");
 
         setTimeout(() => {
-          activeSection.style.transform = "scale(0.5) translate(-200%, -50%)";
-          activeSection.style.transition = "transform 0.5s ease-in-out";
-
-          setTimeout(() => {
-            activeSection.style.display = "none";
-            targetSection.style.display = "block";
-            targetSection.style.transform = "scale(0.5) translate(150%, -50%)";
-            targetSection.style.transition = "transform 0.75s ease-in-out";
-
-            setTimeout(() => {
-              targetSection.style.transform =
-                "scale(0.5) translate(-50%, -50%)";
-
-              setTimeout(() => {
-                targetSection.style.transform = "scale(1) translate(0, 0)";
-                targetSection.classList.add("active");
-              }, 750);
-            }, 1);
-          }, 750);
-        }, 750);
+          activeSection.style.display = "none";
+          targetSection.style.display = "block";
+          targetSection.classList.remove("animate__zoomOut");
+          targetSection.classList.add("animate__zoomIn");
+          targetSection.classList.add("active");
+        }, 500); // Durata animației zoomOut
       }
 
       if (window.innerWidth < 768) {
