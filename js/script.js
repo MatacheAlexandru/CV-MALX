@@ -1,5 +1,4 @@
 // ------------------------transition sections---------------------
-
 document.addEventListener("DOMContentLoaded", function () {
   const menuItems = document.querySelectorAll(".menu-item");
   const sections = document.querySelectorAll(".section");
@@ -48,6 +47,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   burgerMenu.addEventListener("click", function () {
     menu.classList.toggle("active");
+  });
+});
+
+// ------------------------ header scroll------------------
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 0) {
+      if (!header.classList.contains("scrolled")) {
+        header.classList.add("scrolled");
+        console.log('Added class "scrolled" to header');
+      }
+    } else {
+      if (header.classList.contains("scrolled")) {
+        header.classList.remove("scrolled");
+        console.log('Removed class "scrolled" from header');
+      }
+    }
   });
 });
 
