@@ -1,22 +1,26 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f4f6;
+  height: 100%;
+  background-size: cover;
+  background: no-repeat;
+  background: linear-gradient(to bottom, #333333, #ffffff);
 }
 
-ul {
+ul,
+li {
   padding: 0;
 }
 
 header {
-  background: #b3b3b3;
-  color: #fff;
-  padding: 10px 0 10px 0;
+  color: #fdfdfd;
+  padding: 0.2vw 0 0.2vw 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
-  border-bottom: 0.2vw solid #fff;
+  border-radius: 0 0 25% 0;
+  padding-top: 2vh;
 }
 
 nav {
@@ -24,39 +28,46 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-width: 80vw;
-  height: auto;
-  padding: 0 0 0 25vw;
+  padding: 0 0 0 20vw;
 }
 
 .imgprofile {
   position: absolute;
   top: 0;
   left: 0;
-  width: 18vw;
-  background: #b3b3b3;
-  border-right: 0.3vw solid #fff;
-  border-bottom: 0.3vw solid #fff;
+  width: 15vw;
+  border-right: 0.8vw solid transparent;
+  border-bottom: 0.8vw solid transparent;
+  border-radius: 0 0 55% 55%;
+  background: transparent;
+  /* backdrop-filter: blur(10px); */
 }
 
 ul#menu {
   list-style: none;
   display: flex;
-  gap: 3vw;
+  gap: 2vw;
   margin: 0;
   padding: 0;
 }
 
 ul#menu .menu-item {
   cursor: pointer;
-  padding: 10px;
   transition: background 0.3s;
   font-family: "Roboto Slab", serif;
   font-size: 1.8vw;
+  padding: 1vw;
 }
 
 ul#menu .menu-item.active {
-  background: #263cc9;
-  border-radius: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 10% 75% 10% 75%;
+
+  padding: 0 3vw;
 }
 
 .burger-menu {
@@ -110,11 +121,13 @@ main {
   }
 }
 
-#contact {
-  background-color: rgb(255, 140, 0);
+/* ----------------home--------------*/
+
+#home {
+  height: 100vh;
+  background: linear-gradient(to bottom, #333333, #ffffff);
 }
 
-/* ----------------home--------------*/
 .video-background {
   position: fixed;
   top: 0;
@@ -146,7 +159,7 @@ main {
   font-size: 5vw;
   letter-spacing: 0.5vw;
   word-spacing: 0.5vw;
-  color: #263cc9;
+  color: #007bff;
   font-weight: 900;
   text-decoration: none;
   font-style: normal;
@@ -170,7 +183,7 @@ main {
 }
 
 .animatedText2 {
-  color: #263cc9;
+  color: #007bff;
   margin-right: 1vw;
 }
 
@@ -191,7 +204,7 @@ main {
   height: 0.1vw;
   left: 0;
   width: 150%;
-  background-color: #263cc9;
+  background-color: #007bff;
 }
 
 .lastName {
@@ -233,15 +246,11 @@ main {
   align-items: center;
   font-family: "Roboto Slab", serif;
   font-size: 3vw;
-  color: white;
-  background-color: #263cc9;
+  color: rgba(255, 255, 255, 0.889);
+  background-color: rgba(0, 89, 255, 0.5);
   border-radius: 0 90% 0 50%;
-  padding: 3vw 21vw;
-
-  @media (min-width: 1601px) {
-    font-size: 61px;
-    padding: 49px 336px;
-  }
+  padding: 2vw 18vw;
+  border-bottom: 0.2vw solid #090000;
 }
 
 .profile-pic {
@@ -251,7 +260,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: rgba(50, 121, 252, 0.2);
+
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -260,7 +270,7 @@ main {
 .profile-pic h3 {
   font-family: "Roboto Slab", serif;
   font-size: 2vw;
-  color: #2e9aff;
+  color: #002b54;
   text-decoration: underline;
   text-decoration-color: #263cc9;
 }
@@ -272,7 +282,6 @@ main {
 
 li {
   list-style: none;
-  padding: 2vw 0;
 }
 
 .skills-high1 li,
@@ -286,7 +295,7 @@ li {
 .skills-high2 li i {
   margin: 1vw;
   font-size: 2vw;
-  color: #2e9aff;
+  color: #002b54;
 }
 
 .about-content {
@@ -296,7 +305,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: rgba(50, 121, 252, 0.2);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -315,12 +324,9 @@ li {
 .about-content h3 {
   font-family: "Roboto Slab", serif;
   font-size: 2vw;
-  color: #2e9aff;
+  color: #002b54;
   text-decoration: underline;
   text-decoration-color: #263cc9;
-}
-
-.summary p {
 }
 
 .highlight {
@@ -347,6 +353,7 @@ li {
 
 #experience {
   margin-top: 10vh;
+  height: 100vh;
 }
 
 .experience {
@@ -367,9 +374,6 @@ li {
   flex-direction: column;
   align-items: center;
   padding: 0vh 21vw;
-  @media (min-width: 1601px) {
-    padding: 0 336px;
-  }
 }
 
 .timeline-header h2 {
@@ -378,14 +382,11 @@ li {
   align-items: center;
   font-family: "Roboto Slab", serif;
   font-size: 3vw;
-  color: white;
-  background-color: #263cc9;
+  color: rgba(255, 255, 255, 0.889);
+  background-color: rgba(0, 89, 255, 0.5);
   border-radius: 0 90% 0 50%;
-  padding: 3vw 21vw;
-  @media (min-width: 1601px) {
-    font-size: 61px;
-    padding: 49px 336px;
-  }
+  padding: 2vw 18vw;
+  border-bottom: 0.2vw solid #090000;
 }
 
 .timeline-item {
@@ -402,26 +403,27 @@ li {
   bottom: 0;
   left: 0;
   width: 0.1vw;
-  background-color: #00aaff;
+  background-color: #002b54;
   margin-left: 1vw;
 }
 
 .timeline-year {
-  font-size: 1vw;
-  color: #00aaff;
+  font-size: 2vw;
+  color: #002b54;
   position: relative;
   padding-bottom: 0.9vw;
 }
 
 .timeline-year1 {
-  font-size: 1vw;
-  color: #00aaff;
+  font-size: 2vw;
+  color: #002b54;
   position: relative;
   padding-top: 0.9vw;
+  margin-bottom: 4vh;
 }
 
 .timeline-content {
-  background-color: #fff;
+  background-color: rgba(50, 121, 252, 0.2);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -432,19 +434,23 @@ li {
 .timeline-content h3 {
   margin: 0;
   font-size: 2.5vw;
-  color: #263cc9;
+  color: #002b54;
+  text-decoration: underline;
+  text-decoration-color: #002b54;
 }
 
 .timeline-content .company {
   font-family: "Roboto Slab", serif;
+  font-weight: bold;
   font-size: 2vw;
-  color: #2e9aff;
-  text-decoration: underline;
-  text-decoration-color: #263cc9;
+  color: rgba(255, 255, 255, 0.589);
+  text-decoration-color: rgba(255, 255, 255, 0.589);
 }
 
 .text1 {
-  font-size: 1.1vw;
+  font-size: 1.8vw;
+  font-weight: bold;
+  color: rgba(8, 0, 0, 0.625);
 }
 
 .timeline-item:last-child {
@@ -469,14 +475,11 @@ li {
   align-items: center;
   font-family: "Roboto Slab", serif;
   font-size: 3vw;
-  color: white;
-  background-color: #263cc9;
+  color: rgba(255, 255, 255, 0.889);
+  background-color: rgba(0, 89, 255, 0.5);
   border-radius: 0 90% 0 50%;
-  padding: 3vw 21vw;
-  @media (min-width: 1601px) {
-    font-size: 61px;
-    padding: 49px 336px;
-  }
+  padding: 2vw 18vw;
+  border-bottom: 0.2vw solid #090000;
 }
 
 .subtitle-education {
@@ -484,22 +487,24 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: rgba(50, 121, 252, 0.2);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .subtitle-education h3 {
   font-family: "Roboto Slab", serif;
-  font-size: 2vw;
-  color: #2e9aff;
+  font-size: 2.5vw;
+  color: #002b54;
   text-decoration: underline;
-  text-decoration-color: #263cc9;
+  text-decoration-color: #002b54;
 }
 .subtitle-education p {
+  font-weight: bold;
   font-family: "Roboto Slab", serif;
   font-size: 2.1vw;
   padding: 1vw;
+  color: rgba(255, 255, 255, 0.589);
 }
 
 .subtitle-education2 {
@@ -508,8 +513,7 @@ li {
   align-items: center;
   margin: 0 auto;
   margin: 3vw 21vw;
-  background-color: #fff;
-
+  background-color: rgba(50, 121, 252, 0.2);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -518,10 +522,10 @@ li {
   display: flex;
   justify-content: center;
   font-family: "Roboto Slab", serif;
-  font-size: 2vw;
-  color: #2e9aff;
+  font-size: 2.5vw;
+  color: #002b54;
   text-decoration: underline;
-  text-decoration-color: #263cc9;
+  text-decoration-color: #002b54;
 }
 
 .subtitle-education2 h4 {
@@ -529,18 +533,22 @@ li {
   font-size: 2.1vw;
   padding: 1vw;
   padding: 0 4vw;
+  color: rgba(255, 255, 255, 0.589);
 }
 
 .subtitle-education2 p {
   font-family: "Roboto Slab", serif;
   font-size: 2.1vw;
   padding: 1vw 4vw;
+  font-weight: bold;
+  color: rgba(8, 0, 0, 0.625);
 }
 
 /* -------------------------POTFOLIO---------------------- */
 
 #portfolio {
   margin-top: 10vh;
+  height: 100vh;
 }
 
 .content-portfolio {
@@ -555,12 +563,13 @@ li {
   align-items: center;
   font-family: "Roboto Slab", serif;
   font-size: 3vw;
-  color: white;
-  background-color: #263cc9;
+  color: rgba(255, 255, 255, 0.889);
+  background-color: rgba(0, 89, 255, 0.5);
   border-radius: 0 90% 0 50%;
-  padding: 3vw 21vw;
-  @media (min-width: 1601px) {
-    font-size: 61px;
-    padding: 49px 336px;
-  }
+  padding: 2vw 18vw;
+  border-bottom: 0.2vw solid #090000;
+}
+
+#contact {
+  height: 100vh;
 }
