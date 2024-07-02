@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll(".section");
   const burgerMenu = document.getElementById("burger-menu");
   const menu = document.getElementById("menu");
+  const mainContent = document.getElementById("main-content");
 
   // Inițial, ascundem toate secțiunile în afară de cea activă
   sections.forEach((section) => {
@@ -41,12 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (window.innerWidth < 768) {
         menu.classList.remove("active");
+        mainContent.classList.remove("blur");
       }
     });
   });
 
   burgerMenu.addEventListener("click", function () {
     menu.classList.toggle("active");
+    mainContent.classList.toggle("blur");
   });
 });
 
@@ -58,12 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (window.scrollY > 0) {
       if (!header.classList.contains("scrolled")) {
         header.classList.add("scrolled");
-        console.log('Added class "scrolled" to header');
       }
     } else {
       if (header.classList.contains("scrolled")) {
         header.classList.remove("scrolled");
-        console.log('Removed class "scrolled" from header');
       }
     }
   });

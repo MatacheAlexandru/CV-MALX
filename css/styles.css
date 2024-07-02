@@ -1,89 +1,47 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  height: 100%;
-  background-size: cover;
-  background: no-repeat;
-  background: linear-gradient(to bottom, #333333, #ffffff);
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+/* Variabile CSS */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #002b54;
+  --background-light: rgba(50, 121, 252, 0.2);
+  --background-dark: rgba(255, 255, 255, 0.889);
+  --font-primary: "Roboto Slab", serif;
 }
 
+/* Resetări generale */
+body,
 ul,
 li {
+  margin: 0;
   padding: 0;
+  list-style: none;
+  font-family: Arial, sans-serif;
 }
 
-.section {
-  display: none;
+html {
+  height: 100%;
+  background: linear-gradient(to bottom, #333333, #ffffff);
+  background-attachment: fixed;
 }
 
-.section.active {
-  display: block;
-  transform-origin: center;
-}
-
-/* Animații personalizate dacă este necesar */
-@keyframes zoomIn {
-  0% {
-    transform: scale(0.5) translateX(100%);
-    opacity: 0;
-    filter: blur(10px);
-    transform-origin: center;
-  }
-  50% {
-    filter: blur(5px);
-  }
-  100% {
-    transform: scale(1) translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    transform-origin: center;
-  }
-}
-
-@keyframes zoomOut {
-  0% {
-    transform: scale(1) translateX(0);
-    opacity: 1;
-    filter: blur(0);
-    transform-origin: center;
-  }
-  50% {
-    filter: blur(5px);
-  }
-  100% {
-    transform: scale(0.5) translateX(-100%);
-    opacity: 0;
-    filter: blur(10px);
-    transform-origin: center;
-  }
-}
-
-.animate__zoomIn {
-  animation: zoomIn 1s forwards;
-  transform-origin: center;
-}
-
-.animate__zoomOut {
-  animation: zoomOut 1s forwards;
-  transform-origin: center;
-}
-
+/* Header și navigație */
 header {
   color: #fdfdfd;
-  padding: 0.2vw 0 0.2vw 0;
+  padding: 0.2vw 0;
   margin-left: 15vw;
   position: fixed;
-  padding-right: 3vw;
   top: 0;
   z-index: 1000;
   border-radius: 0 0 35% 35%;
   padding-top: 2vh;
-  background-color: transparent; /* Fundal transparent inițial */
-  transition: background-color 0.3s; /* Tranziție lină */
+  background-color: transparent;
+  transition: background-color 0.3s;
 }
 
 header.scrolled {
-  background-color: rgba(86, 84, 84, 0.618); /* Fundal semi-transparent */
+  background-color: rgba(86, 84, 84, 0.618);
 }
 
 nav {
@@ -91,7 +49,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   max-width: 80vw;
-  padding: 0 0 0 2vw;
+  padding-left: 2vw;
 }
 
 .imgprofile {
@@ -106,17 +64,15 @@ nav {
 }
 
 ul#menu {
-  list-style: none;
   display: flex;
   gap: 2vw;
   margin: 0;
-  padding: 0;
 }
 
 ul#menu .menu-item {
   cursor: pointer;
   transition: background 0.3s;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 1.8vw;
   font-weight: bold;
   padding: 1vw;
@@ -129,22 +85,13 @@ ul#menu .menu-item.active {
   background: rgba(255, 255, 255, 0.789);
   color: #000000;
   border-radius: 20% 75% 20% 75%;
-  font-weight: bold;
   padding: 0 3vw;
   animation: rotateIn 0.3s forwards;
 }
 
-@keyframes rotateIn {
-  from {
-    transform: rotate(0deg);
-    background-color: transparent;
-    color: inherit;
-  }
-  to {
-    transform: rotate(360deg);
-    background-color: rgba(0, 89, 255, 0.5);
-    color: white;
-  }
+.blur {
+  filter: blur(10px);
+  transition: filter 0.3s ease;
 }
 
 .burger-menu {
@@ -153,56 +100,23 @@ ul#menu .menu-item.active {
   font-size: 24px;
 }
 
-main {
-  perspective: 1000px;
-}
-
+/* Stiluri pentru secțiuni */
 .section {
   display: none;
   padding: 0;
-  transition: transform 0.5s ease-in-out;
-  transform-origin: center right;
 }
 
 .section.active {
   display: block;
-  transform: scale(1);
 }
 
-@media (max-width: 768px) {
-  nav {
-    padding-left: 3vw;
-  }
-  ul#menu {
-    display: none;
-    flex-direction: column;
-    background: #2e9aff;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 40%;
-  }
-  ul#menu .menu-item {
-    padding: 15px;
-    border-bottom: 1px solid white;
-    font-size: 3vw;
-  }
-  ul#menu.active {
-    display: flex;
-  }
-  .burger-menu {
-    display: block;
-  }
-  .imgprofile {
-    position: relative;
-  }
+main {
+  perspective: 1000px;
 }
 
-/* ----------------home--------------*/
-
+/* Stiluri pentru home */
 #home {
   height: 100vh;
-  background: linear-gradient(to bottom, #333333, #ffffff);
 }
 
 .video-background {
@@ -231,17 +145,17 @@ main {
   opacity: 0.8;
 }
 
-.firstName {
-  font-family: "Roboto Slab", serif;
+.firstName,
+.lastName {
+  font-family: var(--font-primary);
   font-size: 5vw;
   letter-spacing: 0.5vw;
-  word-spacing: 0.5vw;
-  color: #007bff;
+  color: #ffffff;
   font-weight: 900;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
+}
+
+.firstName {
+  color: var(--primary-color);
 }
 
 .animatedText,
@@ -250,7 +164,7 @@ main {
   font-size: 3vw;
   position: relative;
   opacity: 0;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-weight: 500;
 }
 
@@ -260,41 +174,28 @@ main {
 }
 
 .animatedText2 {
-  color: #007bff;
+  color: var(--primary-color);
   margin-right: 1vw;
 }
 
-.animatedText::after {
+.animatedText::after,
+.animatedText2::after {
   content: "";
   position: absolute;
   bottom: -0.5vw;
   height: 0.1vw;
+}
+
+.animatedText::after {
   left: -40%;
   width: 140%;
   background-color: #ffffff;
 }
 
 .animatedText2::after {
-  content: "";
-  position: absolute;
-  bottom: -0.5vw;
-  height: 0.1vw;
   left: 0;
   width: 150%;
-  background-color: #007bff;
-}
-
-.lastName {
-  font-family: "Roboto Slab", serif;
-  font-size: 5vw;
-  letter-spacing: 0.5vw;
-  word-spacing: 0.5vw;
-  color: #ffffff;
-  font-weight: 900;
-  text-decoration: none;
-  font-style: normal;
-  font-variant: normal;
-  text-transform: none;
+  background-color: var(--primary-color);
 }
 
 .logo {
@@ -303,12 +204,9 @@ main {
   z-index: 2;
 }
 
-/* ---------------about me------------- */
-
+/* Stiluri pentru about me */
 #about {
   margin-top: 10vh;
-  /* display: flex;
-  overflow: auto; */
 }
 
 .about-container {
@@ -317,13 +215,16 @@ main {
   align-items: center;
 }
 
-.title-about h2 {
+.title-about h2,
+.timeline-header h2,
+.title-education h2,
+.title-portfolio h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 3vw;
-  color: rgba(255, 255, 255, 0.889);
+  color: var(--background-dark);
   background-color: rgba(0, 89, 255, 0.5);
   border-radius: 0 90% 0 50%;
   padding: 2vw 18vw;
@@ -337,20 +238,21 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(50, 121, 252, 0.2);
-
-  padding: 2vw;
+  background-color: var(--background-light);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-pic h3 {
-  font-family: "Roboto Slab", serif;
+.profile-pic h3,
+.about-content h3,
+.subtitle-education h3,
+.subtitle-education2 h3 {
+  font-family: var(--font-primary);
   font-size: 2vw;
   font-weight: bold;
-  color: #002b54;
+  color: var(--secondary-color);
   text-decoration: underline;
-  text-decoration-color: #002b54;
+  text-decoration-color: var(--secondary-color);
 }
 
 .skills {
@@ -358,13 +260,9 @@ main {
   flex-direction: column-reverse;
 }
 
-li {
-  list-style: none;
-}
-
 .skills-high1 li,
 .skills-high2 li {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 1.1vw;
   padding: 1vw;
   font-weight: bold;
@@ -375,51 +273,49 @@ li {
 .skills-high2 li i {
   margin: 1vw;
   font-size: 2vw;
-  color: #002b54;
+  color: var(--secondary-color);
 }
 
-.about-content {
+.about-content,
+.subtitle-education2 {
   margin: 3vw 21vw;
-  /* padding: 3vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(50, 121, 252, 0.2);
+  background-color: var(--background-light);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.summary {
+.summary,
+.subtitle-education p,
+.subtitle-education2 h4,
+.subtitle-education2 p {
   margin: 0 auto;
   padding: 3vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   width: auto;
 }
 
-.about-content h3 {
-  font-family: "Roboto Slab", serif;
-  font-size: 2vw;
-  color: #002b54;
-  text-decoration: underline;
-  text-decoration-color: #002b54;
-  font-weight: bold;
+.about-content h3,
+.subtitle-education2 h3 {
+  font-size: 2.5vw;
 }
 
 .highlight {
   font-weight: bold;
   color: #263cc9;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 1.5vw;
   margin-left: 2vw;
 }
 
 .indented {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 1.1vw;
   display: block;
   margin-left: 2.7vw;
@@ -427,14 +323,14 @@ li {
   font-weight: bold;
   color: rgba(8, 0, 0, 0.625);
 }
+
 @media (max-width: 768px) {
   .profile-pic img {
     width: 150px;
   }
 }
 
-/* -------------------experience------------------- */
-
+/* Stiluri pentru experience */
 #experience {
   margin-top: 10vh;
   height: 100vh;
@@ -453,26 +349,6 @@ li {
   padding: 0vh 21vw;
 }
 
-.timeline-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0vh 21vw;
-}
-
-.timeline-header h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto Slab", serif;
-  font-size: 3vw;
-  color: rgba(255, 255, 255, 0.889);
-  background-color: rgba(0, 89, 255, 0.5);
-  border-radius: 0 90% 0 50%;
-  padding: 2vw 18vw;
-  border-bottom: 0.2vw solid #090000;
-}
-
 .timeline-item {
   display: flex;
   height: auto;
@@ -487,27 +363,24 @@ li {
   bottom: 0;
   left: 0;
   width: 0.1vw;
-  background-color: #002b54;
+  background-color: var(--secondary-color);
   margin-left: 1vw;
 }
 
-.timeline-year {
+.timeline-year,
+.timeline-year1 {
   font-size: 2vw;
-  color: #002b54;
+  color: var(--secondary-color);
   position: relative;
-  padding-bottom: 0.9vw;
 }
 
 .timeline-year1 {
-  font-size: 2vw;
-  color: #002b54;
-  position: relative;
   padding-top: 0.9vw;
   margin-bottom: 4vh;
 }
 
 .timeline-content {
-  background-color: rgba(50, 121, 252, 0.2);
+  background-color: var(--background-light);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -518,17 +391,16 @@ li {
 .timeline-content h3 {
   margin: 0;
   font-size: 2.5vw;
-  color: #002b54;
+  color: var(--secondary-color);
   text-decoration: underline;
-  text-decoration-color: #002b54;
+  text-decoration-color: var(--secondary-color);
 }
 
 .timeline-content .company {
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-weight: bold;
   font-size: 2vw;
   color: rgba(255, 255, 255, 0.589);
-  text-decoration-color: rgba(255, 255, 255, 0.589);
 }
 
 .text1 {
@@ -541,8 +413,7 @@ li {
   display: none;
 }
 
-/* -------------------------education---------------------- */
-
+/* Stiluri pentru education */
 #education {
   margin-top: 10vh;
 }
@@ -553,67 +424,28 @@ li {
   align-items: center;
 }
 
-.title-education h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto Slab", serif;
-  font-size: 3vw;
-  color: rgba(255, 255, 255, 0.889);
-  background-color: rgba(0, 89, 255, 0.5);
-  border-radius: 0 90% 0 50%;
-  padding: 2vw 18vw;
-  border-bottom: 0.2vw solid #090000;
-}
-
 .subtitle-education {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(50, 121, 252, 0.2);
+  background-color: var(--background-light);
   padding: 2vw;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.subtitle-education h3 {
-  font-family: "Roboto Slab", serif;
-  font-size: 2.5vw;
-  color: #002b54;
-  text-decoration: underline;
-  text-decoration-color: #002b54;
-}
+
 .subtitle-education p {
   font-weight: bold;
-  font-family: "Roboto Slab", serif;
+  font-family: var(--font-primary);
   font-size: 2.1vw;
   padding: 1vw;
   color: rgba(255, 255, 255, 0.589);
 }
 
-.subtitle-education2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  margin: 3vw 21vw;
-  background-color: rgba(50, 121, 252, 0.2);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.subtitle-education2 h3 {
-  display: flex;
-  justify-content: center;
-  font-family: "Roboto Slab", serif;
-  font-size: 2.5vw;
-  color: #002b54;
-  text-decoration: underline;
-  text-decoration-color: #002b54;
-}
-
-.subtitle-education2 h4 {
-  font-family: "Roboto Slab", serif;
+.subtitle-education2 h4,
+.subtitle-education2 p {
+  font-family: var(--font-primary);
   font-size: 2.1vw;
   padding: 1vw;
   padding: 0 4vw;
@@ -621,15 +453,12 @@ li {
 }
 
 .subtitle-education2 p {
-  font-family: "Roboto Slab", serif;
-  font-size: 2.1vw;
   padding: 1vw 4vw;
   font-weight: bold;
   color: rgba(8, 0, 0, 0.625);
 }
 
-/* -------------------------POTFOLIO---------------------- */
-
+/* Stiluri pentru portfolio */
 #portfolio {
   margin-top: 10vh;
   height: 100vh;
@@ -641,19 +470,102 @@ li {
   align-items: center;
 }
 
-.title-portfolio h2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto Slab", serif;
-  font-size: 3vw;
-  color: rgba(255, 255, 255, 0.889);
-  background-color: rgba(0, 89, 255, 0.5);
-  border-radius: 0 90% 0 50%;
-  padding: 2vw 18vw;
-  border-bottom: 0.2vw solid #090000;
-}
-
+/* Stiluri pentru contact */
 #contact {
   height: 100vh;
+}
+
+/* Animații */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5) translateX(100%);
+    opacity: 0;
+    filter: blur(10px);
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  50% {
+    filter: blur(5px);
+  }
+  100% {
+    transform: scale(0.5) translateX(-100%);
+    opacity: 0;
+    filter: blur(10px);
+  }
+}
+
+.animate__zoomIn {
+  animation: zoomIn 1s forwards;
+}
+
+.animate__zoomOut {
+  animation: zoomOut 1s forwards;
+}
+
+/* Responsivitate */
+@media (max-width: 768px) {
+  header {
+    margin-left: 5vw;
+  }
+  nav {
+    padding-left: 0;
+  }
+  ul#menu {
+    justify-content: center;
+    align-items: center;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 7.5vh;
+    left: -4vw;
+    width: 30vw;
+  }
+
+  ul#menu .menu-item.active {
+    padding: 1vh 4vw;
+  }
+
+  ul#menu .menu-item {
+    padding: 15px;
+    font-size: 3vw;
+  }
+  ul#menu.active {
+    display: flex;
+  }
+  .burger-menu {
+    display: block;
+  }
+  .imgprofile {
+    position: relative;
+    left: 0;
+    width: 25vw;
+  }
+}
+
+/* Stiluri suplimentare pentru rotație */
+@keyframes rotateIn {
+  from {
+    transform: rotate(0deg);
+    background-color: transparent;
+    color: inherit;
+  }
+  to {
+    transform: rotate(360deg);
+    background-color: rgba(0, 89, 255, 0.5);
+    color: white;
+  }
 }
