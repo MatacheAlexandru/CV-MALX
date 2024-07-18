@@ -180,3 +180,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+function copyPhoneNumber() {
+  const phoneNumber = "0772098607";
+  const tempInput = document.createElement("input");
+  tempInput.value = phoneNumber;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempInput);
+  alert("Phone number copied to clipboard: " + phoneNumber);
+}
