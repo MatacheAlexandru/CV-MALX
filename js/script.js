@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
           targetSection.classList.remove("animate__zoomOut");
           targetSection.classList.add("animate__zoomIn");
           targetSection.classList.add("active");
+
+          // Set scroll position to top
+          window.scrollTo(0, 0);
         }, 500); // Durata animației zoomOut
       }
 
@@ -50,6 +53,27 @@ document.addEventListener("DOMContentLoaded", function () {
   burgerMenu.addEventListener("click", function () {
     menu.classList.toggle("active");
     mainContent.classList.toggle("blur");
+  });
+
+  // Portfolio item hover and click behavior
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+  portfolioItems.forEach((item) => {
+    const video = item.querySelector(".portfolio-video");
+
+    item.addEventListener("mouseover", () => {
+      video.play();
+    });
+
+    item.addEventListener("mouseout", () => {
+      video.pause();
+      video.currentTime = 0; // Reset video to start
+    });
+
+    item.addEventListener("click", () => {
+      const url = item.dataset.url;
+      window.open(url, "_blank");
+    });
   });
 });
 
@@ -71,7 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //-----------------------------------------title animation------------------------------
-
 document.addEventListener("DOMContentLoaded", function () {
   const animatedText1 = document.querySelector(".animatedText");
   const animatedText2 = document.querySelector(".animatedText2");
@@ -132,4 +155,28 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   startAnimations();
+});
+
+//-----------------------------------------Portfolio------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+  portfolioItems.forEach((item) => {
+    const video = item.querySelector(".portfolio-video");
+    const description = item.querySelector(".portfolio-description");
+
+    // Asigură redarea video-ului la încărcare
+    video.play();
+
+    item.addEventListener("mouseenter", () => {
+      description.style.transform = "translateY(0)";
+    });
+
+    item.addEventListener("mouseleave", () => {
+      description.style.transform = "translateY(100%)";
+      // Asigură continuarea redării video-ului dacă este întrerupt
+      video.play();
+    });
+  });
 });
